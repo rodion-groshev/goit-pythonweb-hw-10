@@ -1,5 +1,5 @@
 from datetime import date
-from sqlalchemy import Integer, String, ForeignKey, Float, Date, Column, DateTime, func
+from sqlalchemy import Integer, String, ForeignKey, Float, Date, Column, DateTime, func, Boolean
 from sqlalchemy.orm import DeclarativeBase, relationship, Mapped, mapped_column
 
 
@@ -29,3 +29,4 @@ class User(Base):
     hashed_password = Column(String)
     created_at = Column(DateTime, default=func.now())
     avatar = Column(String(255), nullable=True)
+    confirmed = Column(Boolean, default=False)
